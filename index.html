@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Dear Love</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    font-family:"Segoe UI",sans-serif;
+}
+body{
+    margin:0;
+    min-height:100vh;
+    background:#ffe6ee;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    transition:background 1.5s;
+}
+
+/* FLOATING ICONS */
+.float{
+    position:absolute;
+    animation:floatUp linear infinite;
+    opacity:0.9;
+    z-index:1;
+}
+@keyframes floatUp{
+    0%{transform:translateY(110vh) scale(0.4);opacity:0;}
+    30%{opacity:1;}
+    100%{transform:translateY(-10vh) scale(1.6);opacity:0;}
+}
+
+/* CARD */
+.card{
+    width:580px;
+    padding:45px;
+    border-radius:40px;
+    text-align:center;
+    box-shadow:0 50px 100px rgba(0,0,0,0.35);
+    display:none;
+    animation:fadeIn 1.3s;
+    z-index:5;
+}
+@keyframes fadeIn{
+    from{opacity:0;transform:scale(0.85);}
+    to{opacity:1;transform:scale(1);}
+}
+
+button{
+    margin-top:25px;
+    padding:16px 50px;
+    border:none;
+    border-radius:40px;
+    font-size:17px;
+    cursor:pointer;
+    background:linear-gradient(to right,#ff4d6d,#ff2e63);
+    color:white;
+}
+button:hover{transform:scale(1.08);}
+
+#page1{background:#ffe6ee;color:#5a1a2d;}
+#page2{background:#f1ecff;color:#3d3354;}
+#page3{background:radial-gradient(circle at top,#ff5f8f,#8b002b);color:white;}
+
+.big-heart{
+    font-size:170px;
+    animation:heartBeat 1s infinite;
+    margin-bottom:25px;
+}
+@keyframes heartBeat{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.8);}
+    100%{transform:scale(1);}
+}
+</style>
+</head>
+
+<body>
+
+<script>
+const symbols=["❤️","🌹","❤️","🌹"];
+for(let i=0;i<60;i++){
+    let f=document.createElement("div");
+    f.className="float";
+    f.innerHTML=symbols[Math.floor(Math.random()*symbols.length)];
+    f.style.left=Math.random()*100+"vw";
+    f.style.fontSize=(24+Math.random()*45)+"px";
+    f.style.animationDuration=(5+Math.random()*6)+"s";
+    document.body.appendChild(f);
+}
+</script>
+
+<!-- PAGE 1 -->
+<div class="card" id="page1" style="display:block;">
+    <h1>Dear Love,</h1>
+
+    <p>
+        Sila vishayangal seri illa nu enakku romba naala feel aagudhu.
+        Nee serura bond ellamey nallaa irukku nu naan solla mudiyala.
+    </p>
+
+    <p>
+        Aana un words, un behaviour
+        ellamey en manasula romba hurt pannichu 💔
+    </p>
+
+    <button onclick="next1()">Click Here</button>
+</div>
+
+<!-- PAGE 2 -->
+<div class="card" id="page2">
+    <h1>Dear Love,</h1>
+
+    <p>
+        Enakku ego irukku.
+        Aana un mela irukkura love-kaaga
+        naan en ego-va side-la vechikitten.
+    </p>
+
+    <p>
+        Konjam enakkaaga,
+        konjam namma relationship-kaaga,
+        nee unnaya maathippaayaa?
+    </p>
+
+    <button onclick="next2()">Next</button>
+</div>
+
+<!-- PAGE 3 -->
+<div class="card" id="page3">
+    <div class="big-heart">❤️</div>
+
+    <h1>Always You</h1>
+
+    <p style="font-size:22px;line-height:2;">
+        Naan unna vittu pogala.<br>
+        Pogavum maatten.<br>
+        Nee irundhaa podhum…<br>
+        Ellam seri aagum 💖
+    </p>
+
+    <p><b>Always yours</b></p>
+    <p>— Moon</p>
+</div>
+
+<script>
+function next1(){
+    page1.style.display="none";
+    page2.style.display="block";
+    document.body.style.background="#f1ecff";
+}
+function next2(){
+    page2.style.display="none";
+    page3.style.display="block";
+    document.body.style.background="#8b002b";
+}
+</script>
+
+</body>
+</html>
